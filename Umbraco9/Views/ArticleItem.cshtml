@@ -5,6 +5,13 @@
 	Layout = "Master.cshtml";
 }
 
+<!-- Jumbotron, w title -->
+		<div class="jumbotron text-center jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-1">@Model.Value("articleTitle")</h1>
+				<p>här landal alla blogg poster!</p>
+			</div>
+		</div>
 
-		
+	@Model.Value("articleContent")
 	
