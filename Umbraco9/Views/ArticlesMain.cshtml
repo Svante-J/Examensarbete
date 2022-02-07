@@ -17,12 +17,34 @@
 		</div>
 
 		<!-- Main container -->
+		
+@{
+	var firstselection = Umbraco.Content(Guid.Parse("8d7b4400-0402-4222-9a48-d253d71ec8be"))
+    .ChildrenOfType("articleItem")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate);
+    
+  
+}
+
+
+
 		<div class="container">
 
 			<!-- Featured blogpost -->
+			<ul>
+	
+</ul>
 			<div class="row section">
+			    
 				<div class="col-md-12">
-				
+				@foreach (var item in firstselection)
+	{
+		<li>
+			<a href="@item.Url()">@item.Name() </a>
+			
+		</li>
+	}
 					</div></a>
 				</div>
 			</div>
@@ -30,7 +52,7 @@
 			<!-- Latest blog posts -->
 			<div class="row section">
 				<div class="col-md-12">
-					<h3>
+				
 @{
 	var selection = Umbraco.Content(Guid.Parse("8d7b4400-0402-4222-9a48-d253d71ec8be"))
     .ChildrenOfType("articleItem")
@@ -40,15 +62,22 @@
 <ul>
 	@foreach (var item in selection)
 	{
-		<article class="special">
-    <div class="articledate" > @item.CreateDate </div>
-    <div class="articletitle"><a href="@item.Url()">@item.Name()</a></div>
-    <div class="articlepreview">@Html.Truncate(item.Value("articleContent").ToString(), 20, true)<a href="@item.Url()">Read More..</a></div>
-        </article>
+	    <div class="row">
+    	    <article class="special">
+                <h5> @item.CreateDate </h5>
+                <div class="articletitle">
+                    <a href="@item.Url()"><h3>@item.Name()</h3></a>
+                </div>
+                <div class="articlepreview">
+                    <h5>@Html.Truncate(item.Value("articleContent").ToString(), 20, true)</h5>
+                    <a href="@item.Url()" class="btn btn-primary" >Read More..</a>
+                </div>
+            </article>
+        </div>
 	}
 </ul>
 
-</h3>
+
 				</div>
 			</div>
 
