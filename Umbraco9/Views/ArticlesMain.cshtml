@@ -12,7 +12,7 @@
 		<div class="jumbotron text-center jumbotron-fluid">
 			<div class="container">
 				<h1 class="display-1">@Model.Value("articleTitle")</h1>
-				<p>här landal alla blogg poster!</p>
+				<p>@Model.Value("articleBodyText")</p>
 			</div>
 		</div>
 
@@ -27,7 +27,7 @@
 			<div class="row section">
 				<div class="col-md-12">
 				    
-				    @Model.Value("featureStory")
+				    
 
     				@{
     				        IPublishedContent featureStory = Model.Value<IPublishedContent>("featuredStory");
