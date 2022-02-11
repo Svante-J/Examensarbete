@@ -15,14 +15,18 @@
 			</div>
 		</div>
 
-		<!-- This is where we're going to render our content   "col-md-4" -->
+		<!-- Content -->
 		
-		<div class="col-md-4">
+		<div class="container">
+		
+    		<div class="col-md-4">
+    		    <h2>Ett värde</h2>
+               <p> @Model.Value("bodyText")</p>
+    		</div>	
+			
+		</div>
 
-            @Model.Value("bodyText")
-		</div>	
-
-		<!-- Call to Action -->
+		<!-- Banner -->
 		<div class="container-fluid orange-bg">
 			<div class="container">
 
