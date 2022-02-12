@@ -5,6 +5,74 @@
 	Layout = "Master.cshtml";
 }
 
+<!-- Jumbotron, w title -->
+		<div class="jumbotron text-center jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-1">@Model.Value("title")</h1>
+				<p>@Model.Value("subtitle")</p>
+			</div>
+		</div>
 
-		
 	
+	<!-- Main container -->
+
+		<!-- Blogpost meta data -->
+		<div class="container-fluid grey-bg">
+			<div class="container">
+				<div class="row section">
+					<div class="col-md-6">
+						<div class="meta-author media p-3">
+							<div class="media-body">
+								<p><span class="font-weight-bold">Written by</span> <br />
+								    @Model.Value("authorName") <br />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="meta-meta text-right">
+							<p><br /> 
+								<span class="font-weight-bold">Published on</span> @(Model.Value<DateTime>("publishedOn").ToString("MMM dd, yyyy")) <br />
+								<span class="font-weight-bold">Category:</span> <a href="#">
+								    @if(Model.Categories.Any()){
+								    
+								        @foreach(var tag in Model.Categories){
+								            <span>@tag</span>
+								        }
+								    }   
+								
+								</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+
+		<!-- Blogpost content -->
+        <div class="container">
+
+			<div class="row section">
+				<div class="col-md-12">
+					<p class="intro">@Model.Value("introText")</p>
+					<br />
+					<p>@Model.Value("bodyText")</p>
+					<br />
+				
+				</div>
+			</div>
+		</div>
+
+		<!-- Related story -->
+		<div class="container-fluid orange-bg">
+			<div class="container">
+				<div class="row section">
+					<div class="col-md-12 blog-related">
+						<h4>statisk html</h4>
+					
+						    <h5>Statisk titel</h5>
+							<p>statisk pragraf <br />
+								<span class="font-italic">Svante</span></p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
